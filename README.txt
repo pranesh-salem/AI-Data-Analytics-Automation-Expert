@@ -1,42 +1,45 @@
-CUSTOMER SHOPPING DASHBOARD - POWER BI PROJECT (.pbip)
-======================================================
+# 🚀 Automated Data Analysis & EDA Agent
 
-WHAT THIS IS
-A Power BI Project: the open, text-based format of a Power BI report. The cleaned data
-(3,900 customers) is embedded in the model's Power Query step, so no file paths need
-changing. Pages: Overview | Products & Customers | Regions & Operations | Data Quality & Insights.
-Slicers (Gender, Season, Category, Age Group, Subscription) are synced across the first three pages.
+An intelligent, automated Data Analysis Agent designed to streamline Exploratory Data Analysis (EDA), extract key business metrics, and generate visual insights seamlessly.
 
-HOW TO OPEN AND SAVE AS .PBIX
-1. Unzip the whole folder (keep the .Report and .SemanticModel folders next to the .pbip file).
-2. Install/update Power BI Desktop (free, Windows). In older versions turn on
-   File > Options and settings > Options > Preview features > "Power BI Project (.pbip) save option",
-   then restart Power BI Desktop.
-3. File > Open > "Customer Shopping Dashboard.pbip".
-4. Click Home > Refresh once. A project stores no data cache, so visuals stay empty until the first refresh.
-5. File > Save As > choose "Power BI file (*.pbix)". You now have a standard .pbix.
-6. Optional: View > Themes > Browse for themes > CustomerShoppingTheme.json.
+---
 
-IF IT DOES NOT OPEN
-This project was generated outside Power BI Desktop and could not be test-opened there.
-If Desktop reports an error, use the fallback (about 15 minutes):
-  a. Get data > Text/CSV > customer_shopping_cleaned.csv (load as table "Customers").
-  b. New measure: paste each measure from DAX_Measures.txt and set its format.
-  c. Sort Season by "Season Order", Customer Segment by "Segment Order",
-     Frequency (Standardized) by "Frequency Order", Size by "Size Order" (Column tools > Sort by column).
-  d. Rebuild the visuals listed below.
+## 📊 Key Performance Insights & Visualizations
 
-VISUALS
-Overview: 5 dropdown slicers; cards (Total Revenue, Customer Count, Avg Order Value, Avg Review Rating,
-  Subscription Rate, Discount Rate); bar Revenue by Category; column Revenue by Season; matrix
-  Category x Season revenue; column Revenue by Age Group; donut Revenue by Gender; bar Customers by Segment.
-Products & Customers: bar Revenue by Product; product table; bar Customers by Frequency;
-  bars Avg Order Value by Discount Applied and by Subscription Status.
-Regions & Operations: bar Revenue by State; state table; bars by Shipping Type, Payment Method, Size.
-Data Quality & Insights: data-check cards; insights and recommendations text.
+### 1. Revenue & Category Analysis
+* **Category Breakdown:** Clothing leads total revenue at **$104,264 (44.7%)**, followed by Accessories at **$74,200 (31.8%)**[cite: 1].
+* **Seasonal Trends:** Revenue remains steady across seasons, with Fall peaking slightly at **$60,018** and Summer at **$55,777**[cite: 2].
+* **Season vs Category Heatmap:** Highest single revenue cluster is observed in **Spring - Clothing ($27,692)** and **Winter - Clothing ($27,274)**[cite: 10].
+* **Top Products & Bottom Products:** Blouse (**$10,410**), Shirt (**$10,332**), and Dress (**$10,320**) lead product sales, while Jeans brings in **$7,548**[cite: 3].
+* **AOV by Discount & Subscriptions:** Average Order Value remains consistent across subscriptions (~**$59.49** vs **$59.87**) and discounts (~**$59.28** vs **$60.13**)[cite: 8].
 
-DATA NOTES
-- No order dates in the source: Season is the only time dimension.
-- 37 blank review ratings are left blank (Avg Review Rating uses rated rows only).
-- No female customer is recorded as subscribed or discounted, and every subscriber has a discount:
-  verify these fields at source before acting on them.
+### 2. Customer Segmentation & Behavior
+* **Loyalty Segments:** **Loyal customers** form the majority backbone at **3,116 customers (79.9%)**, while Returning users account for **701 (18.0%)** and New users account for **83 (2.1%)**[cite: 6].
+* **Purchase Frequency:** Quarterly (**1,147**) and Fortnightly (**1,089**) shopping frequencies dominate, followed by Annually (**572**), Monthly (**553**), and Weekly (**539**)[cite: 7].
+* **Demographics:** Male buyers drive **$157,890 (67.7%)** of revenue compared to Female buyers at **$75,191 (32.3%)**[cite: 5]. Age group **56–70** generates the highest spend (**$65,256**), followed by 46–55 (**$45,619**) and 26–35 (**$44,342**)[cite: 4].
+
+### 3. Geographic Performance
+* **Top States:** Montana (**$5,784**), Illinois (**$5,617**), and California (**$5,605**) lead regional sales[cite: 9].
+* **Bottom States:** Kansas (**$3,437**) and Hawaii (**$3,752**) trail at the bottom[cite: 9].
+
+---
+
+## 📁 Repository Structure
+
+```text
+auto-eda-analytics-agent/
+│
+├── README.md               # Main project documentation & overview
+├── assets/                 # Folder containing all generated charts/images
+│   ├── 01_revenue_by_category.png
+│   ├── 02_revenue_by_season.png
+│   ├── 03_revenue_by_product.png
+│   ├── 04_revenue_by_age_group.png
+│   ├── 05_revenue_by_gender.png
+│   ├── 06_customers_by_segment.png
+│   ├── 07_customers_by_frequency.png
+│   ├── 08_aov_discount_subscription.png
+│   ├── 09_states_top_bottom.png
+│   └── 10_heatmap_season_category.png
+├── src/                    # Source code / Agent scripts
+└── requirements.txt        # Dependencies
