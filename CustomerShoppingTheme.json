@@ -1,0 +1,33 @@
+{
+  "name": "Customer Shopping",
+  "dataColors": [
+    "#2A6FB0",
+    "#C56B2C",
+    "#2F855A",
+    "#8E5AA8",
+    "#C0392B",
+    "#16A2A6",
+    "#7F8C8D",
+    "#D4A017"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1F1E1D",
+  "tableAccent": "#2A6FB0",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#1F1E1D"
+    },
+    "callout": {
+      "fontFace": "Segoe UI",
+      "fontSize": 26,
+      "color": "#1F1E1D"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 9,
+      "color": "#5F5E5B"
+    }
+  }
+}

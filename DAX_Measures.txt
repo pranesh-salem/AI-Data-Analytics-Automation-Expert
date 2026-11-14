@@ -1,0 +1,50 @@
+DAX measures used in the dashboard (table: Customers)
+
+Total Revenue = SUM(Customers[Purchase Amount (USD)])
+    Format: $#,0
+
+Customer Count = COUNTROWS(Customers)
+    Format: #,0
+
+Avg Order Value = DIVIDE([Total Revenue], [Customer Count])
+    Format: $#,0.00
+
+Median Order Value = MEDIAN(Customers[Purchase Amount (USD)])
+    Format: $#,0.00
+
+Avg Review Rating = AVERAGE(Customers[Review Rating])
+    Format: 0.00
+
+Subscription Rate = DIVIDE(CALCULATE([Customer Count], Customers[Subscription Status] = "Yes"), [Customer Count])
+    Format: 0.0%
+
+Discount Rate = DIVIDE(CALCULATE([Customer Count], Customers[Discount Applied] = "Yes"), [Customer Count])
+    Format: 0.0%
+
+Avg Previous Purchases = AVERAGE(Customers[Previous Purchases])
+    Format: 0.0
+
+Loyal Customer Share = DIVIDE(CALCULATE([Customer Count], Customers[Customer Segment] = "Loyal"), [Customer Count])
+    Format: 0.0%
+
+Avg Age = AVERAGE(Customers[Age])
+    Format: 0.0
+
+Revenue Share = DIVIDE([Total Revenue], CALCULATE([Total Revenue], ALLSELECTED(Customers)))
+    Format: 0.0%
+
+Customer Share = DIVIDE([Customer Count], CALCULATE([Customer Count], ALLSELECTED(Customers)))
+    Format: 0.0%
+
+Missing Ratings = COUNTBLANK(Customers[Review Rating])
+    Format: #,0
+
+Female Subscribers = CALCULATE([Customer Count], Customers[Gender] = "Female", Customers[Subscription Status] = "Yes") + 0
+    Format: #,0
+
+Female Discounted = CALCULATE([Customer Count], Customers[Gender] = "Female", Customers[Discount Applied] = "Yes") + 0
+    Format: #,0
+
+Subscribers With Discount = CALCULATE([Customer Count], Customers[Subscription Status] = "Yes", Customers[Discount Applied] = "Yes") + 0
+    Format: #,0
+
